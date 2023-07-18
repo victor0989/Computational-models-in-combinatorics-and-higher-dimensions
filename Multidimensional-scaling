@@ -1,0 +1,37 @@
+# Multidimensional scaling (MDS) seeks a low-dimensional representation of the data in which the distances respect well 
+# The distances in the original high-dimensional space.
+
+md_scaling = manifold.MDS(
+    n_components=n_components,
+    max_iter=50,
+    n_init=4,
+    random_state=0,
+    normalized_stress=False,
+)
+S_scaling = md_scaling.fit_transform(S_points)
+
+plot_2d(S_scaling, S_color, "Multidimensional scaling")
+
+from sklearn.datasets import load_digits
+from sklearn.manifold import MDS
+X, _ = load_digits(return_X_y=True)
+X.shape
+embedding = MDS(n_components=2, normalized_stress='auto')
+X_transformed = embedding.fit_transform(X[:100])
+X_transformed.shape
+
+# Methods to reduce dimensions
+fit(X[, y, init])
+
+Compute the position of the points in the embedding space.
+
+fit_transform(X[, y, init])
+Fit the data from X, and returns the embedded coordinates.
+get_metadata_routing()
+Get metadata routing of this object.
+get_params([deep])
+Get parameters for this estimator.
+set_fit_request(*[, init])
+Request metadata passed to the fit method.
+set_params(**params)
+Set the parameters of this estimator.
