@@ -14,3 +14,9 @@ Operations on labeled structures and their exponential generating functions,
 Scikit (Mathematical models)
 -Dimensions
 -Python 
+
+USEFUL ACADEMIC LINKS:
+# https://www.pnas.org/doi/10.1073/pnas.1031596100
+# https://scikit-learn.org/stable/modules/manifold.html
+# https://docs.google.com/document/d/1XRYiaFOuT9ypzQfzEynN8KxdzW2cn_aAv6QMh1EJn1E/edit?usp=sharing
+
