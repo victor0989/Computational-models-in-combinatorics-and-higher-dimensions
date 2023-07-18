@@ -5,11 +5,12 @@ In this math and artificial intelligence project I list and construct new comput
 
 #You will find in the project three important tools that are mathematics, scikit and representations of combinatorics and higher order dimensions.
 
-#Chapters
+Chapters:
 
-.Operations on combinatorial structures and their generating functions 
-.Exponential generating functions
-.Operations on labeled structures and their exponential generating functions
-.Scikit (Mathematical models)
-.Dimensions
-.Python 
+Operations on combinatorial structures and their generating functions,
+Exponential generating functions,
+Operations on labeled structures and their exponential generating functions,
+
+Scikit (Mathematical models)
+-Dimensions
+-Python 
