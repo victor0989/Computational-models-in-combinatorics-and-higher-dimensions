@@ -94,3 +94,100 @@
                 (n_samples, n_samples)
             Input data. If ``dissimilarity=='precomputed'``, the input should
             be the dissimilarity matrix.
+
+ Examples
+    --------
+    >>> from sklearn.datasets import load_digits
+    >>> from sklearn.manifold import MDS
+    >>> X, _ = load_digits(return_X_y=True)
+    >>> X.shape
+    (1797, 64)
+    >>> embedding = MDS(n_components=2, normalized_stress='auto')
+    >>> X_transformed = embedding.fit_transform(X[:100])
+    >>> X_transformed.shape
+    (100, 2)
+    """
+
+    _parameter_constraints: dict = {
+        "n_components": [Interval(Integral, 1, None, closed="left")],
+        "metric": ["boolean"],
+        "n_init": [Interval(Integral, 1, None, closed="left")],
+        "max_iter": [Interval(Integral, 1, None, closed="left")],
+        "verbose": ["verbose"],
+        "eps": [Interval(Real, 0.0, None, closed="left")],
+        "n_jobs": [None, Integral],
+        "random_state": ["random_state"],
+        "dissimilarity": [StrOptions({"euclidean", "precomputed"})],
+        "normalized_stress": [
+            "boolean",
+            StrOptions({"auto"}),
+            Hidden(StrOptions({"warn"})),
+        ],
+    }
+
+    def __init__(
+        self,
+        n_components=2,
+        *,
+        metric=True,
+        n_init=4,
+        max_iter=300,
+        verbose=0,
+        eps=1e-3,
+        n_jobs=None,
+        random_state=None,
+        dissimilarity="euclidean",
+        normalized_stress="warn",
+    ):
+        self.n_components = n_components
+        self.dissimilarity = dissimilarity
+        self.metric = metric
+        self.n_init = n_init
+        self.max_iter = max_iter
+        self.eps = eps
+        self.verbose = verbose
+        self.n_jobs = n_jobs
+        self.random_state = random_state
+        self.normalized_stress = normalized_stress
+
+    def _more_tags(self):
+        return {"pairwise": self.dissimilarity == "precomputed"}
+
+    def fit(self, X, y=None, init=None):
+        """
+        Compute the position of the points in the embedding space.
+
+        Parameters
+        ----------
+        X : array-like of shape (n_samples, n_features) or \
+                (n_samples, n_samples)
+            Input data. If ``dissimilarity=='precomputed'``, the input should
+            be the dissimilarity matrix.
+
+        y : Ignored
+            Not used, present for API consistency by convention.
+
+        init : ndarray of shape (n_samples, n_components), default=None
+            Starting configuration of the embedding to initialize the SMACOF
+            algorithm. By default, the algorithm is initialized with a randomly
+            chosen array.
+
+        Returns
+        -------
+        self : object
+            Fitted estimator.
+        """
+        self.fit_transform(X, init=init)
+        return self
+
+    @_fit_context(prefer_skip_nested_validation=True)
+    def fit_transform(self, X, y=None, init=None):
+        """
+        Fit the data from `X`, and returns the embedded coordinates.
+
+        Parameters
+        ----------
+        X : array-like of shape (n_samples, n_features) or \
+                (n_samples, n_samples)
+            Input data. If ``dissimilarity=='precomputed'``, the input should
+            be the dissimilarity matrix.
