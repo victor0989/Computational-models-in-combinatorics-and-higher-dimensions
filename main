@@ -1,0 +1,38 @@
+- Combinatorics is the study of possibilities
+- Subsets
+- Geometric point of view
+- Elements A, B, C
+- 2^N possible subsets.
+
+Generating functions are
+the most powerful tool to unify the different kinds of answers that interest us: explicit formulas,
+recurrences, asymptotic formulas, and generating functions. In Section 2 we develop the algebraic
+theory of generating functions. Various natural operations on combinatorial families of objects
+correspond to simple algebraic operations on their generating functions
+
+• Generating functions help us obtain recursive formulas. In this example, we simply compare
+the coefficients of x
+n on both sides of the equation A(x)(1 − x − x 2) = 1, and we get the recurrence
+relation (2).
+
+• Generating functions help us obtain asymptotic formulas. In this example, (5) leads to
+(3), which gives (4). In general, almost everything that we know about the rate of growth of
+combinatorial sequences comes from their generating functions, because analysis tells us that the
+asymptotic behavior of an is intimately tied to the singularities of the function A(x).
+
+• Generating functions help us enumerate our combinatorial objects in more detail, and understand 
+some of their statistical properties. 
+
+Explicit formula 1. We first look for an explicit combinatorial formula for an. To do that, we play
+with a few examples, and quickly notice that these tilings are structurally very simple: they are
+just a sequence of 2 × 1 vertical tiles, and 2 × 2 blocks covered by two horizontal tiles. Therefore
+constructing a tiling is the same as writing n as an ordered sum of 1s and 2s. For example, the
+tilings of Figure 1.1 correspond, respectively, to 1 + 1 + 1 + 1, 1 + 1 + 2, 1 + 2 + 1, 2 + 1 + 1, 2 + 2.
+These sums are easy to count. If there are k summands equal to 2 there must be n−2k summands
+equal to 1, and there are ￾
+
+n−2k+k k  = ￾
+n−k
+k 
+
+
