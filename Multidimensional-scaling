@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Multidimensional scaling (MDS) seeks a low-dimensional representation of the data in which the distances respect well 
 # The distances in the original high-dimensional space.
 
