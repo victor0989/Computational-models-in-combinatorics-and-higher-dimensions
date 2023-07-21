@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #Random forest regressor for multiple dimensions
 #In this example I want to show diferent random states
 #The regression and the mean as x and y functions to model cube dimensions
