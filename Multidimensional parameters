@@ -1,4 +1,5 @@
- Examples
+#!/usr/bin/python3
+Examples
     --------
     >>> from sklearn.datasets import load_digits
     >>> from sklearn.manifold import MDS
